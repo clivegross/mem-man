@@ -1,0 +1,8 @@
+[Unit]
+Description=Python 3 script for managing memory on a Linux based development server.
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/mem-man/mem-man.py
+
+[Install]
+WantedBy=multi-user.target

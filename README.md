@@ -1,9 +1,29 @@
 # mem-man
 Python 3 script for managing memory on a Linux based development server. Use as a fallback to automatically kill processes on remote dev servers that are eating memory and killing your connection. For example, [this issue with VS Code Remote SSH](https://github.com/microsoft/vscode/issues/175830)
 
-The program checks if the system memory has exceeded a threshold (%) `MEM_THRESHOLD_PERCENT` is exceeded, then excecutes any commands provided. Set `MEM_THRESHOLD_PERCENT` in `mem-man.py`. Start the program by executing:
+Start the program by executing:
 
     python mem-man.py
+
+### Requirements
+
+Ensure `python3` is installed.
+Install python module `psutils`:
+
+```
+pip3 install psutils
+```
+
+### Configuration
+
+The program checks if the system memory has exceeded a threshold (%) `MEM_THRESHOLD_PERCENT` is exceeded, then excecutes any commands provided. Set `MEM_THRESHOLD_PERCENT` in `mem-man.py`. Provide the commands to execute in the `COMMANDS` list in `mem-man.py`, eg:
+
+```
+COMMANDS = [
+    "pm2 stop all",
+    "killall node"
+]
+```
 
 ### Run as a systemd service using systemctl
 
