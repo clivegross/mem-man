@@ -4,12 +4,12 @@ import time
 import psutil
 
 # Set the threshold for memory usage
-MEM_THRESHOLD_PERCENT = 89 # %
+MEM_THRESHOLD_PERCENT = 94 # %
 # Set the frequency of checking memory usage
 CHECK_INTERVAL = 60 # seconds
 # Set the commands to execute when memory usage exceeds the threshold
 COMMANDS = [
-    "pm2 stop all",
+    "pkill -f pm2"
 ]
 
 def get_memory_usage():
